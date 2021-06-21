@@ -1,9 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GetChampionDetails,
-  GetChampions,
-} from "../redux/champions/actions/championAction";
+import { GetChampions } from "../redux/champions/actions/championAction";
 import { RootStore } from "../redux/store";
 import {
   ChampionCard,
@@ -11,7 +8,6 @@ import {
   SearchCont,
 } from "../styles/champions/championStyles";
 import { SummonerInput } from "../styles/summoner/summonerStyles";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../util/loadingSpinner";
 
@@ -26,7 +22,6 @@ interface Champ {
 }
 
 const AllChampions: React.FC = () => {
-  const { push } = useHistory();
   const [name, setName] = useState("");
   const dispatch = useDispatch();
   const championData = useSelector((state: RootStore) => state.champions);

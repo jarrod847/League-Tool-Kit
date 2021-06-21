@@ -5,7 +5,6 @@ import {
   Summoner_success,
   Summoner_failure,
 } from "./summonerActionTypes";
-import axios from "axios";
 import BaseUrl from "../../../util/axios";
 
 export const GetSummoner =

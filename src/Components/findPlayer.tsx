@@ -13,10 +13,8 @@ import {
 
 const FindPlayer: React.FC = () => {
   const [name, setName] = useState("");
-  const [trigger, setTrigger] = useState(false);
   const dispatch = useDispatch();
   const summonerState = useSelector((state: RootStore) => state.summoner);
-  const rankedState = useSelector((state: RootStore) => state.ranked);
   const updateInput = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
