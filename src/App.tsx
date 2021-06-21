@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import FindPlayer from "./Components/findPlayer";
+import SummonerData from "./Components/summoner";
+import MatchHistory from "./Components/matchHistory";
+import NavBar from "./Components/nav";
+import { GlobalStyles, AppCont } from "./styles/globalStyles";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AllChampions from "./Components/champions";
+import ChampionPage from "./Components/championPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppCont>
+      <Router>
+        <GlobalStyles />
+        <ThemeProvider theme={theme}>
+          <NavBar />
+          <Route exact path="/" component={FindPlayer} />
+          <Route path="/champions" component={AllChampions} />
+          <Route path="/champion/:id" component={ChampionPage} />
+        </ThemeProvider>
+      </Router>
+    </AppCont>
   );
 }
 
