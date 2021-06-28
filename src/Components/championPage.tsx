@@ -13,8 +13,7 @@ const ChampionPage: React.FC = () => {
   const dispatch = useDispatch();
   const detailedData = useSelector((state: RootStore) => state.championDetails);
   const champions = useSelector((state: RootStore) => state.champions);
-  const champName = window.location.href.slice(31);
-  console.log(champName);
+  const champName = window.location.href.split("/")[4];
   useEffect(() => {
     dispatch(GetChampionDetails(champName));
   }, []);
